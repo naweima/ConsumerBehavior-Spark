@@ -4,21 +4,6 @@ import java.io.Serializable;
 
 import scala.math.Ordered;
 
-/**
- * 品类二次排序key
- * 
- * 封装你要进行排序算法需要的几个字段：点击次数、下单次数和支付次数
- * 实现Ordered接口要求的几个方法
- * 
- * 跟其他key相比，如何来判定大于、大于等于、小于、小于等于
- * 
- * 依次使用三个次数进行比较，如果某一个相等，那么就比较下一个
- * 
- * （自定义的二次排序key，必须要实现Serializable接口，表明是可以序列化的，负责会报错）
- * 
- * @author Administrator
- *
- */
 public class CategorySortKey implements Ordered<CategorySortKey>, Serializable {
 	
 	private static final long serialVersionUID = -6007890914324789180L;

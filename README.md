@@ -2,7 +2,7 @@
 
 My client is a travel website. Lots of customers will search products and place order from their website. My duty is to get and manipulate the data we need and provide the data to product manager and data analyst to do further processing.
 
-There are 2 main parts in this project.
+There are two parts in this project.
 1. Analyzed consumer behavior (Spark Core and SparkSQL). 
 
 •	Filter records based on question of interest. (Spark Core)

@@ -4,6 +4,7 @@ My client is a travel website. Lots of customers will search products and place 
 
 There are 2 main parts in this project.
 1. Analyzed consumer behavior (Spark Core and SparkSQL). 
+
 •	Filter records based on question of interest. (Spark Core)
 •	Use mapToPair and join transformation to create RDD. Filter records based on parameters.
 •	Use customized accumulator to calculate 9 ratios of each visit time.

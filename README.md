@@ -1,13 +1,24 @@
-### Big data analysis of consumer behavior for e-commerce website using Spark core, SparkSQL, Spark-streaming
+### Big data analysis of consumer behavior using Spark core, SparkSQL, Spark-streaming
 
-My client is an e-commerce website. Lots of customers will search products and place order from their website. My duty is to get and manipulate the data we need and provide the data to product manager and data analyst to do further processing.
-
-This project is a simplify version. I use simulated data to run the code.
+My client is a travel website. Lots of customers will search products and place order from their website. My duty is to get and manipulate the data we need and provide the data to product manager and data analyst to do further processing.
 
 There are 2 main parts in this project.
+1. Analyzed consumer behavior (Spark Core and SparkSQL). 
+•	Filter records based on question of interest. (Spark Core)
+•	Use mapToPair and join transformation to create RDD. Filter records based on parameters.
+•	Use customized accumulator to calculate 9 ratios of each visit time.
+•	Randomly select 100 records at time scale from filtered records.
+•	Use secondary sort to sort top 10 clicked, ordered and payment products sequentially.
+•	Grouped by id, calculate top 10 click session records for each group.
+•	Tune performance and troubleshooting and data skew.
+•	Calculate top 3 products for each area. (SparkSQL, row by partition, case when)
 
-1. Analyze consumer behavior. Filter specific customers based on question of interest. Define aggregate function, random sample, get top 10 page views/orders of the hot commodities. Based on specific date, calculate top 3 products for each area. Tune performance and troubleshooting.
+2. Developed dynamic blacklist (Spark-Streaming). 
 
-2. Develop dynamic blacklist. Put customers who clicked one ad over 100 times into blacklist. Calculate ads click stream data for each city. Calculate top 3 hot ads and click stream trend within 1 hour. Save the output into MySQL.
-
-//Because the target folder is too large. I just upload the code and pom file.
+•	Put customers who clicked one ad over 100 times into blacklist, save it into MySQL
+•	Filter records from blacklist, save it into MySQL
+•	Create DStream, join blacklist RDD (created from MySQL), 
+•	Calculate ads click count for each city using updateStateByKey. Update it into MySQL.
+•	Calculate top 3 ads for each state (Spark SQL: row by partition)
+•	Calculate click count trend within 1 hour using slide windows operation. Save the output into MySQL. (click count by minutes)
+•	Tune performance and troubleshooting.
